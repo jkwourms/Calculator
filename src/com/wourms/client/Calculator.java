@@ -6,6 +6,7 @@ import com.google.gwt.user.client.ui.RootPanel;
 import com.sencha.gxt.widget.core.client.ContentPanel;
 import com.sencha.gxt.widget.core.client.button.ButtonGroup;
 import com.sencha.gxt.widget.core.client.button.TextButton;
+import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -20,17 +21,16 @@ public class Calculator implements EntryPoint {
 
 	@Override
 	public void onModuleLoad() {
-		ContentPanel panel = new ContentPanel();
+		VerticalLayoutContainer container = new VerticalLayoutContainer();
 		
-		panel.getButtonBar().add(numberPad());
+		container.add(numberPad());
 		
-		RootPanel.get().add(panel);
+		RootPanel.get().add(container);
 	}
 
 	private ButtonGroup numberPad() {
 		ButtonGroup group = new ButtonGroup();
 		group.setHeading("ButtonGroup");
-		//panel.getButtonBar().add(group);
 		
 		FlexTable table = new FlexTable();
 		group.add(table);
