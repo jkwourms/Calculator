@@ -3,10 +3,11 @@ package com.wourms.client;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.RootPanel;
-import com.sencha.gxt.widget.core.client.ContentPanel;
 import com.sencha.gxt.widget.core.client.button.ButtonGroup;
 import com.sencha.gxt.widget.core.client.button.TextButton;
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer;
+import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData;
+import com.sencha.gxt.widget.core.client.form.TextField;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -22,6 +23,8 @@ public class Calculator implements EntryPoint {
 	@Override
 	public void onModuleLoad() {
 		VerticalLayoutContainer container = new VerticalLayoutContainer();
+		TextField field = new TextField();
+		container.add(field);
 		container.add(numberPad());
 		
 		// Center in screen
@@ -32,7 +35,6 @@ public class Calculator implements EntryPoint {
 
 	private ButtonGroup numberPad() {
 		ButtonGroup group = new ButtonGroup();
-		group.setHeading("ButtonGroup");
 		
 		FlexTable table = new FlexTable();
 		group.add(table);
