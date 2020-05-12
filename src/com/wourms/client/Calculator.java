@@ -22,9 +22,11 @@ public class Calculator implements EntryPoint {
 	@Override
 	public void onModuleLoad() {
 		VerticalLayoutContainer container = new VerticalLayoutContainer();
-		
 		container.add(numberPad());
 		
+		// Center in screen
+		container.setPosition(RootPanel.get().getOffsetWidth()/2, 100);
+
 		RootPanel.get().add(container);
 	}
 
