@@ -6,7 +6,6 @@ import com.google.gwt.user.client.ui.RootPanel;
 import com.sencha.gxt.widget.core.client.button.ButtonGroup;
 import com.sencha.gxt.widget.core.client.button.TextButton;
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer;
-import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData;
 import com.sencha.gxt.widget.core.client.form.TextField;
 
 /**
@@ -26,38 +25,33 @@ public class Calculator implements EntryPoint {
 		TextField field = new TextField();
 		container.add(field);
 		container.add(numberPad());
-		
+
 		// Center in screen
-		container.setPosition(RootPanel.get().getOffsetWidth()/2, 100);
+		container.setPosition(RootPanel.get().getOffsetWidth() / 2, 100);
 
 		RootPanel.get().add(container);
 	}
 
 	private ButtonGroup numberPad() {
 		ButtonGroup group = new ButtonGroup();
-		
+
 		FlexTable table = new FlexTable();
 		group.add(table);
-		
-		TextButton btn = new TextButton("1");
-		table.setWidget(0, 0, btn);
-		btn = new TextButton("2");
-		table.setWidget(0, 1, btn);
-		btn = new TextButton("3");
-		table.setWidget(0, 2, btn);
-		btn = new TextButton("4");
-		table.setWidget(1, 0, btn);
-		btn = new TextButton("5");
-		table.setWidget(1, 1, btn);
-		btn = new TextButton("6");
-		table.setWidget(1, 2, btn);
-		btn = new TextButton("7");
-		table.setWidget(2, 0, btn);
-		btn = new TextButton("8");
-		table.setWidget(2, 1, btn);
-		btn = new TextButton("9");
-		table.setWidget(2, 2, btn);
-		
+
+		int row = 0;
+		int col = 0;
+		for (int i = 1; i < 10; i++) {
+			String value = String.valueOf(i);
+			TextButton btn = new TextButton(value);
+			btn.getElement().setId("numberPadButton");
+			table.setWidget(row, col, btn);
+			col++;
+			if (i % 3 == 0) {
+				row++;
+				col = 0;
+			}
+		}
+
 		return group;
 	}
 }

@@ -32,3 +32,10 @@ h1 {
 #closeButton {
   margin: 15px 6px 6px;
 }
+
+#numberPadButton {
+	margin: 5px;
+	font-weight: bold;
+	font-size: 20px;
+	color: #FFA500;
+}
